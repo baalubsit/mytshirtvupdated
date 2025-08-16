@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CustomTees - Create Your Perfect Custom T-Shirt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h2>CustomTees</h2>
+                </div>
+                <nav class="nav">
+                    <a href="#" class="nav-link active" data-page="home">Home</a>
+                    <a href="#" class="nav-link" data-page="design">Design Tool</a>
+                    <a href="#" class="nav-link" data-page="guide">Measurement Guide</a>
+                    <a href="#" class="nav-link cart-trigger">
+                        Cart (<span id="cart-count">0</span>)
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page -->
+        <div id="home-page" class="page active">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Create Your Perfect Custom T-Shirt</h1>
+                        <p>Design unique, high-quality custom t-shirts with our easy-to-use design tool. Express yourself with unlimited creativity.</p>
+                        <div class="hero-buttons">
+                            <button class="btn btn--primary btn--lg" data-page="design">Start Designing</button>
+                            <button class="btn btn--outline btn--lg" data-page="guide">Size Guide</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Products -->
+            <section class="featured-products">
+                <div class="container">
+                    <h2>Featured Products</h2>
+                    <div class="products-grid" id="products-grid">
+                        <!-- Products will be loaded by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Designs -->
+            <section class="featured-designs">
+                <div class="container">
+                    <h2>Popular Designs</h2>
+                    <div class="designs-grid" id="designs-grid">
+                        <!-- Designs will be loaded by JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Design Tool Page -->
+        <div id="design-page" class="page">
+            <div class="container">
+                <div class="design-tool">
+                    <h1>Custom T-Shirt Design Tool</h1>
+                    <div class="design-layout">
+                        <!-- T-Shirt Preview -->
+                        <div class="preview-section">
+                            <div class="tshirt-preview">
+                                <div class="tshirt-container" id="tshirt-preview">
+                                    <div class="tshirt-base"></div>
+                                    <div class="custom-text" id="preview-text"></div>
+                                    <div class="custom-image" id="preview-image"></div>
+                                </div>
+                                <div class="view-toggle">
+                                    <button class="btn btn--outline btn--sm active" data-view="front">Front</button>
+                                    <button class="btn btn--outline btn--sm" data-view="back">Back</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Customization Options -->
+                        <div class="customization-panel">
+                            <div class="option-group">
+                                <h3>Product Selection</h3>
+                                <div class="form-group">
+                                    <label class="form-label">T-Shirt Style</label>
+                                    <select class="form-control" id="product-select">
+                                        <option value="1">Classic Cotton Tee - $15</option>
+                                        <option value="2">Premium Blend Tee - $22</option>
+                                        <option value="3">Vintage Style Tee - $25</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <h3>Color & Size</h3>
+                                <div class="form-group">
+                                    <label class="form-label">Color</label>
+                                    <div class="color-options" id="color-options">
+                                        <!-- Colors will be loaded by JavaScript -->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Size</label>
+                                    <select class="form-control" id="size-select">
+                                        <option value="XS">XS - $0</option>
+                                        <option value="S">S - $0</option>
+                                        <option value="M" selected>M - $0</option>
+                                        <option value="L">L - $0</option>
+                                        <option value="XL">XL - +$2</option>
+                                        <option value="XXL">XXL - +$4</option>
+                                        <option value="XXXL">XXXL - +$6</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <h3>Add Text</h3>
+                                <div class="form-group">
+                                    <label class="form-label">Text</label>
+                                    <input type="text" class="form-control" id="custom-text" placeholder="Enter your text">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Font</label>
+                                    <select class="form-control" id="font-select">
+                                        <option value="Arial">Arial</option>
+                                        <option value="Georgia">Georgia</option>
+                                        <option value="Impact">Impact</option>
+                                        <option value="Comic Sans MS">Comic Sans MS</option>
+                                        <option value="Times New Roman">Times New Roman</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Text Color</label>
+                                    <div class="color-options" id="text-color-options">
+                                        <!-- Text colors will be loaded by JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="option-group">
+                                <h3>Add Image/Logo</h3>
+                                <div class="form-group">
+                                    <label class="form-label">Upload Image</label>
+                                    <input type="file" class="form-control" id="image-upload" accept="image/*">
+                                    <p class="text-secondary">Simulated upload - Preview only</p>
+                                </div>
+                            </div>
+
+                            <div class="price-summary">
+                                <div class="price-breakdown">
+                                    <div class="price-line">
+                                        <span>Base Price:</span>
+                                        <span id="base-price">$15.00</span>
+                                    </div>
+                                    <div class="price-line">
+                                        <span>Size Modifier:</span>
+                                        <span id="size-price">$0.00</span>
+                                    </div>
+                                    <div class="price-line">
+                                        <span>Text Addition:</span>
+                                        <span id="text-price">$0.00</span>
+                                    </div>
+                                    <div class="price-line">
+                                        <span>Image Addition:</span>
+                                        <span id="image-price">$0.00</span>
+                                    </div>
+                                    <div class="price-total">
+                                        <span>Total:</span>
+                                        <span id="total-price">$15.00</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn--primary btn--full-width" id="add-to-cart-btn">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Measurement Guide Page -->
+        <div id="guide-page" class="page">
+            <div class="container">
+                <div class="guide-content">
+                    <h1>T-Shirt Measurement Guide</h1>
+                    <p class="guide-intro">Follow our comprehensive guide to find your perfect fit. Proper measurements ensure your custom t-shirt looks and feels great.</p>
+
+                    <!-- How to Measure Section -->
+                    <section class="measure-instructions">
+                        <h2>How to Measure</h2>
+                        <div class="measure-steps">
+                            <div class="measure-visual">
+                                <img src="https://pplx-res.cloudinary.com/image/upload/v1754753108/pplx_project_search_images/991a696f9b03c9bc8a94be7c11ef889d587b1cd3.png" alt="T-shirt measurement guide" class="guide-image">
+                            </div>
+                            <div class="measure-list">
+                                <div class="measure-step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h3>Chest Measurement</h3>
+                                        <p>Measure around the fullest part of your chest, keeping the tape horizontal. For shirts, measure 2 inches below armpits.</p>
+                                    </div>
+                                </div>
+                                <div class="measure-step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h3>Length Measurement</h3>
+                                        <p>Measure from the highest point of shoulder to desired length (usually waist level).</p>
+                                    </div>
+                                </div>
+                                <div class="measure-step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h3>Sleeve Length</h3>
+                                        <p>Measure from shoulder seam to desired sleeve end point.</p>
+                                    </div>
+                                </div>
+                                <div class="measure-step">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h3>Shoulder Width</h3>
+                                        <p>Measure from shoulder point to shoulder point across the back.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Size Chart Section -->
+                    <section class="size-chart-section">
+                        <h2>Size Chart</h2>
+                        <div class="size-chart-container">
+                            <table class="size-chart">
+                                <thead>
+                                    <tr>
+                                        <th>Size</th>
+                                        <th>Chest (inches)</th>
+                                        <th>Length (inches)</th>
+                                        <th>Sleeve (inches)</th>
+                                        <th>Weight Range</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="size-chart-body">
+                                    <!-- Size chart data will be loaded by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- Additional Visual Guide -->
+                    <section class="additional-guide">
+                        <h2>Visual Measurement Reference</h2>
+                        <div class="guide-images">
+                            <div class="guide-image-item">
+                                <img src="https://pplx-res.cloudinary.com/image/upload/v1755316109/pplx_project_search_images/446fd8ae7a68e280bb9e438944f5c399defbed5a.png" alt="T-shirt measurement points" class="guide-image">
+                                <p>Key measurement points for accurate sizing</p>
+                            </div>
+                            <div class="guide-image-item">
+                                <img src="https://pplx-res.cloudinary.com/image/upload/v1755316109/pplx_project_search_images/9d1dab505295d63eafca2330e4deb5459b3e4cb9.png" alt="Width and length measurement" class="guide-image">
+                                <p>Width and length measurement demonstration</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Tips Section -->
+                    <section class="sizing-tips">
+                        <h2>Sizing Tips</h2>
+                        <div class="tips-grid">
+                            <div class="tip-card">
+                                <h3>For Best Fit</h3>
+                                <p>Compare your measurements to our size chart rather than relying on your usual size, as sizing can vary between brands.</p>
+                            </div>
+                            <div class="tip-card">
+                                <h3>Between Sizes?</h3>
+                                <p>If you're between sizes, consider your preferred fit. Size up for a looser fit, or size down for a more fitted look.</p>
+                            </div>
+                            <div class="tip-card">
+                                <h3>Fabric Consideration</h3>
+                                <p>Our cotton tees may shrink slightly after washing. Consider this when choosing your size.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="cart-close" id="cart-close">&times;</button>
+        </div>
+        <div class="cart-content">
+            <div id="cart-items" class="cart-items">
+                <!-- Cart items will be loaded by JavaScript -->
+            </div>
+            <div id="cart-empty" class="cart-empty">
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <div class="total-line">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">$0.00</span>
+                </div>
+                <div class="total-line total-final">
+                    <span>Total:</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+            </div>
+            <button class="btn btn--primary btn--full-width" id="checkout-btn" disabled>
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div id="cart-overlay" class="cart-overlay"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
