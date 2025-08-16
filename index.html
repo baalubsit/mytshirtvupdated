@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CustomTees - Create Your Perfect Custom T-Shirt</title>
+    <title>CustomTees - Advanced 3D T-Shirt Designer with Body Shape Fitting</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,11 +12,11 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <h2>CustomTees</h2>
+                    <h2>CustomTees 3D</h2>
                 </div>
                 <nav class="nav">
                     <a href="#" class="nav-link active" data-page="home">Home</a>
-                    <a href="#" class="nav-link" data-page="design">Design Tool</a>
+                    <a href="#" class="nav-link" data-page="design">3D Design Tool</a>
                     <a href="#" class="nav-link" data-page="guide">Measurement Guide</a>
                     <a href="#" class="nav-link cart-trigger">
                         Cart (<span id="cart-count">0</span>)
@@ -34,11 +34,25 @@
             <section class="hero">
                 <div class="container">
                     <div class="hero-content">
-                        <h1>Create Your Perfect Custom T-Shirt</h1>
-                        <p>Design unique, high-quality custom t-shirts with our easy-to-use design tool. Express yourself with unlimited creativity.</p>
+                        <h1>Design Your Perfect T-Shirt in 3D</h1>
+                        <p>Experience the future of custom apparel with our advanced 3D design tool. Select your body shape, find the perfect fit, and customize every detail with realistic 3D visualization.</p>
                         <div class="hero-buttons">
-                            <button class="btn btn--primary btn--lg" data-page="design">Start Designing</button>
-                            <button class="btn btn--outline btn--lg" data-page="guide">Size Guide</button>
+                            <button class="btn btn--primary btn--lg" data-page="design">Start 3D Design</button>
+                            <button class="btn btn--outline btn--lg" data-page="guide">Size & Fit Guide</button>
+                        </div>
+                        <div class="hero-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">🎯</div>
+                                <div class="feature-text">Body Shape Matching</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🔄</div>
+                                <div class="feature-text">360° 3D Preview</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">📏</div>
+                                <div class="feature-text">Perfect Fit Guarantee</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -54,124 +68,275 @@
                 </div>
             </section>
 
-            <!-- Featured Designs -->
-            <section class="featured-designs">
+            <!-- Body Shape Preview -->
+            <section class="body-shape-preview">
                 <div class="container">
-                    <h2>Popular Designs</h2>
-                    <div class="designs-grid" id="designs-grid">
-                        <!-- Designs will be loaded by JavaScript -->
+                    <h2>Find Your Perfect Fit</h2>
+                    <p>Our advanced body shape analysis ensures your t-shirt fits perfectly every time.</p>
+                    <div class="body-shapes-preview">
+                        <div class="body-shape-card" onclick="showPage('design')">
+                            <img src="https://pplx-res.cloudinary.com/image/upload/v1754869803/pplx_project_search_images/53136fc4dce90984e7fdab2ff675578671e50319.png" alt="Body Shape Guide" class="body-shape-img">
+                            <h3>5 Body Shape Types</h3>
+                            <p>Personalized recommendations for every body type</p>
+                        </div>
+                        <div class="body-shape-card" onclick="showPage('design')">
+                            <img src="https://pplx-res.cloudinary.com/image/upload/v1755318310/pplx_project_search_images/279a8bde94373b765b58df8a9bf897ef98b6bca2.png" alt="Fit Comparison" class="body-shape-img">
+                            <h3>Multiple Fit Options</h3>
+                            <p>From slim to oversized, find your perfect style</p>
+                        </div>
                     </div>
                 </div>
             </section>
         </div>
 
-        <!-- Design Tool Page -->
+        <!-- Enhanced 3D Design Tool Page -->
         <div id="design-page" class="page">
             <div class="container">
-                <div class="design-tool">
-                    <h1>Custom T-Shirt Design Tool</h1>
-                    <div class="design-layout">
-                        <!-- T-Shirt Preview -->
-                        <div class="preview-section">
-                            <div class="tshirt-preview">
-                                <div class="tshirt-container" id="tshirt-preview">
-                                    <div class="tshirt-base"></div>
-                                    <div class="custom-text" id="preview-text"></div>
-                                    <div class="custom-image" id="preview-image"></div>
+                <div class="design-tool-3d">
+                    <h1>Advanced 3D T-Shirt Design Studio</h1>
+                    
+                    <!-- Design Layout -->
+                    <div class="design-layout-3d">
+                        <!-- 3D Preview Section -->
+                        <div class="preview-section-3d">
+                            <!-- 3D Viewer -->
+                            <div class="tshirt-3d-viewer">
+                                <div class="viewer-controls">
+                                    <div class="view-angles">
+                                        <button class="angle-btn active" data-angle="0">Front</button>
+                                        <button class="angle-btn" data-angle="90">Right</button>
+                                        <button class="angle-btn" data-angle="180">Back</button>
+                                        <button class="angle-btn" data-angle="270">Left</button>
+                                    </div>
+                                    <div class="viewer-actions">
+                                        <button class="control-btn" id="auto-rotate-btn">🔄 Auto Rotate</button>
+                                        <button class="control-btn" id="zoom-in-btn">🔍+</button>
+                                        <button class="control-btn" id="zoom-out-btn">🔍-</button>
+                                    </div>
                                 </div>
-                                <div class="view-toggle">
-                                    <button class="btn btn--outline btn--sm active" data-view="front">Front</button>
-                                    <button class="btn btn--outline btn--sm" data-view="back">Back</button>
+                                
+                                <!-- 3D T-Shirt Container -->
+                                <div class="tshirt-3d-container" id="tshirt-3d-container">
+                                    <div class="tshirt-3d-model" id="tshirt-3d-model">
+                                        <div class="tshirt-front face">
+                                            <div class="fabric-texture" id="fabric-texture-front"></div>
+                                            <div class="custom-design" id="design-front">
+                                                <div class="custom-text" id="text-front"></div>
+                                                <div class="custom-image" id="image-front"></div>
+                                            </div>
+                                        </div>
+                                        <div class="tshirt-back face">
+                                            <div class="fabric-texture" id="fabric-texture-back"></div>
+                                            <div class="custom-design" id="design-back">
+                                                <div class="custom-text" id="text-back"></div>
+                                                <div class="custom-image" id="image-back"></div>
+                                            </div>
+                                        </div>
+                                        <div class="tshirt-left face">
+                                            <div class="fabric-texture" id="fabric-texture-left"></div>
+                                        </div>
+                                        <div class="tshirt-right face">
+                                            <div class="fabric-texture" id="fabric-texture-right"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Body Shape Avatar -->
+                                <div class="body-shape-avatar" id="body-shape-avatar">
+                                    <div class="avatar-body rectangle" id="avatar-display"></div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Customization Options -->
-                        <div class="customization-panel">
-                            <div class="option-group">
-                                <h3>Product Selection</h3>
-                                <div class="form-group">
-                                    <label class="form-label">T-Shirt Style</label>
-                                    <select class="form-control" id="product-select">
-                                        <option value="1">Classic Cotton Tee - $15</option>
-                                        <option value="2">Premium Blend Tee - $22</option>
-                                        <option value="3">Vintage Style Tee - $25</option>
-                                    </select>
-                                </div>
+                        <!-- Enhanced Customization Panel -->
+                        <div class="customization-panel-3d">
+                            <!-- Tab Navigation -->
+                            <div class="tab-navigation">
+                                <button class="tab-btn active" data-tab="body-shape">👤 Body Shape</button>
+                                <button class="tab-btn" data-tab="fit">📏 Fit</button>
+                                <button class="tab-btn" data-tab="product">👕 Product</button>
+                                <button class="tab-btn" data-tab="design">🎨 Design</button>
+                                <button class="tab-btn" data-tab="fabric">🧵 Fabric</button>
                             </div>
 
-                            <div class="option-group">
-                                <h3>Color & Size</h3>
-                                <div class="form-group">
-                                    <label class="form-label">Color</label>
-                                    <div class="color-options" id="color-options">
-                                        <!-- Colors will be loaded by JavaScript -->
+                            <!-- Tab Content -->
+                            <div class="tab-content">
+                                <!-- Body Shape Selection Tab -->
+                                <div class="tab-panel active" data-tab="body-shape">
+                                    <h3>Select Your Body Shape</h3>
+                                    <p class="tab-description">Choose your body type for personalized fit recommendations</p>
+                                    
+                                    <div class="body-shapes-grid">
+                                        <div class="body-shape-option" data-shape="rectangle">
+                                            <div class="body-shape-icon rectangle"></div>
+                                            <div class="body-shape-info">
+                                                <h4>Rectangle</h4>
+                                                <p>Straight torso, similar width throughout</p>
+                                            </div>
+                                        </div>
+                                        <div class="body-shape-option" data-shape="inverted-triangle">
+                                            <div class="body-shape-icon inverted-triangle"></div>
+                                            <div class="body-shape-info">
+                                                <h4>Inverted Triangle</h4>
+                                                <p>Broad shoulders, narrow waist</p>
+                                            </div>
+                                        </div>
+                                        <div class="body-shape-option" data-shape="triangle">
+                                            <div class="body-shape-icon triangle"></div>
+                                            <div class="body-shape-info">
+                                                <h4>Triangle</h4>
+                                                <p>Narrow shoulders, wider waist</p>
+                                            </div>
+                                        </div>
+                                        <div class="body-shape-option" data-shape="oval">
+                                            <div class="body-shape-icon oval"></div>
+                                            <div class="body-shape-info">
+                                                <h4>Oval</h4>
+                                                <p>Rounded midsection</p>
+                                            </div>
+                                        </div>
+                                        <div class="body-shape-option" data-shape="trapezoid">
+                                            <div class="body-shape-icon trapezoid"></div>
+                                            <div class="body-shape-info">
+                                                <h4>Trapezoid</h4>
+                                                <p>Balanced proportions</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="shape-tips" id="shape-tips">
+                                        <div class="tip-card">
+                                            <h4>Style Tips</h4>
+                                            <p id="shape-tip-text">Select your body shape to see personalized recommendations</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="form-label">Size</label>
-                                    <select class="form-control" id="size-select">
-                                        <option value="XS">XS - $0</option>
-                                        <option value="S">S - $0</option>
-                                        <option value="M" selected>M - $0</option>
-                                        <option value="L">L - $0</option>
-                                        <option value="XL">XL - +$2</option>
-                                        <option value="XXL">XXL - +$4</option>
-                                        <option value="XXXL">XXXL - +$6</option>
-                                    </select>
-                                </div>
-                            </div>
 
-                            <div class="option-group">
-                                <h3>Add Text</h3>
-                                <div class="form-group">
-                                    <label class="form-label">Text</label>
-                                    <input type="text" class="form-control" id="custom-text" placeholder="Enter your text">
+                                <!-- Fit Selection Tab -->
+                                <div class="tab-panel" data-tab="fit">
+                                    <h3>Choose Your Fit</h3>
+                                    <p class="tab-description">Select the perfect fit based on your body shape and style preference</p>
+                                    
+                                    <div class="fit-recommendations" id="fit-recommendations">
+                                        <h4>Recommended for Your Body Shape</h4>
+                                        <div class="recommended-fits" id="recommended-fits"></div>
+                                    </div>
+
+                                    <div class="fit-options" id="fit-options">
+                                        <!-- Fit options will be loaded by JavaScript -->
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="form-label">Font</label>
-                                    <select class="form-control" id="font-select">
-                                        <option value="Arial">Arial</option>
-                                        <option value="Georgia">Georgia</option>
-                                        <option value="Impact">Impact</option>
-                                        <option value="Comic Sans MS">Comic Sans MS</option>
-                                        <option value="Times New Roman">Times New Roman</option>
-                                    </select>
+
+                                <!-- Product Selection Tab -->
+                                <div class="tab-panel" data-tab="product">
+                                    <h3>T-Shirt Style & Size</h3>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">T-Shirt Style</label>
+                                        <select class="form-control" id="product-select">
+                                            <!-- Options will be loaded by JavaScript -->
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">Color</label>
+                                        <div class="color-options" id="color-options">
+                                            <!-- Colors will be loaded by JavaScript -->
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">Size</label>
+                                        <select class="form-control" id="size-select">
+                                            <!-- Options will be loaded by JavaScript -->
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="form-label">Text Color</label>
-                                    <div class="color-options" id="text-color-options">
-                                        <!-- Text colors will be loaded by JavaScript -->
+
+                                <!-- Design Tab -->
+                                <div class="tab-panel" data-tab="design">
+                                    <h3>Design & Graphics</h3>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">Design Placement</label>
+                                        <select class="form-control" id="design-placement">
+                                            <option value="front-center">Front Center</option>
+                                            <option value="front-left-chest">Left Chest</option>
+                                            <option value="back-center">Back Center</option>
+                                            <option value="sleeves">Sleeves</option>
+                                            <option value="all-over">All Over Print</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="design-section">
+                                        <h4>Add Text</h4>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="custom-text" placeholder="Enter your text">
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label class="form-label">Font</label>
+                                                <select class="form-control" id="font-select">
+                                                    <option value="Arial">Arial</option>
+                                                    <option value="Georgia">Georgia</option>
+                                                    <option value="Impact">Impact</option>
+                                                    <option value="Comic Sans MS">Comic Sans MS</option>
+                                                    <option value="Times New Roman">Times New Roman</option>
+                                                    <option value="Helvetica">Helvetica</option>
+                                                    <option value="Futura">Futura</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Text Color</label>
+                                                <div class="color-options text-colors" id="text-color-options">
+                                                    <!-- Text colors will be loaded by JavaScript -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="design-section">
+                                        <h4>Add Image/Logo</h4>
+                                        <div class="form-group">
+                                            <input type="file" class="form-control" id="image-upload" accept="image/*">
+                                            <p class="text-secondary">Upload your custom design or logo</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Fabric Tab -->
+                                <div class="tab-panel" data-tab="fabric">
+                                    <h3>Fabric & Material</h3>
+                                    <p class="tab-description">Choose your preferred fabric type for comfort and style</p>
+                                    
+                                    <div class="fabric-options" id="fabric-options">
+                                        <!-- Fabric options will be loaded by JavaScript -->
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="option-group">
-                                <h3>Add Image/Logo</h3>
-                                <div class="form-group">
-                                    <label class="form-label">Upload Image</label>
-                                    <input type="file" class="form-control" id="image-upload" accept="image/*">
-                                    <p class="text-secondary">Simulated upload - Preview only</p>
-                                </div>
-                            </div>
-
-                            <div class="price-summary">
+                            <!-- Price Summary -->
+                            <div class="price-summary-3d">
                                 <div class="price-breakdown">
                                     <div class="price-line">
                                         <span>Base Price:</span>
                                         <span id="base-price">$15.00</span>
                                     </div>
                                     <div class="price-line">
+                                        <span>Fit Modifier:</span>
+                                        <span id="fit-price">$0.00</span>
+                                    </div>
+                                    <div class="price-line">
+                                        <span>Fabric Upgrade:</span>
+                                        <span id="fabric-price">$0.00</span>
+                                    </div>
+                                    <div class="price-line">
                                         <span>Size Modifier:</span>
                                         <span id="size-price">$0.00</span>
                                     </div>
                                     <div class="price-line">
-                                        <span>Text Addition:</span>
-                                        <span id="text-price">$0.00</span>
-                                    </div>
-                                    <div class="price-line">
-                                        <span>Image Addition:</span>
-                                        <span id="image-price">$0.00</span>
+                                        <span>Design Addition:</span>
+                                        <span id="design-price">$0.00</span>
                                     </div>
                                     <div class="price-total">
                                         <span>Total:</span>
@@ -179,7 +344,7 @@
                                     </div>
                                 </div>
                                 <button class="btn btn--primary btn--full-width" id="add-to-cart-btn">
-                                    Add to Cart
+                                    Add to Cart - <span id="cart-price">$15.00</span>
                                 </button>
                             </div>
                         </div>
@@ -188,54 +353,70 @@
             </div>
         </div>
 
-        <!-- Measurement Guide Page -->
+        <!-- Other pages (guide, cart, checkout) remain the same as in the previous version -->
         <div id="guide-page" class="page">
             <div class="container">
                 <div class="guide-content">
-                    <h1>T-Shirt Measurement Guide</h1>
-                    <p class="guide-intro">Follow our comprehensive guide to find your perfect fit. Proper measurements ensure your custom t-shirt looks and feels great.</p>
+                    <h1>T-Shirt Measurement & Fit Guide</h1>
+                    <p class="guide-intro">Use our comprehensive guide to find your perfect fit with body shape recommendations and precise measurements.</p>
 
-                    <!-- How to Measure Section -->
-                    <section class="measure-instructions">
-                        <h2>How to Measure</h2>
-                        <div class="measure-steps">
-                            <div class="measure-visual">
-                                <img src="https://pplx-res.cloudinary.com/image/upload/v1754753108/pplx_project_search_images/991a696f9b03c9bc8a94be7c11ef889d587b1cd3.png" alt="T-shirt measurement guide" class="guide-image">
-                            </div>
-                            <div class="measure-list">
-                                <div class="measure-step">
-                                    <div class="step-number">1</div>
-                                    <div class="step-content">
-                                        <h3>Chest Measurement</h3>
-                                        <p>Measure around the fullest part of your chest, keeping the tape horizontal. For shirts, measure 2 inches below armpits.</p>
-                                    </div>
+                    <!-- Body Shape Guide Section -->
+                    <section class="body-shape-guide-section">
+                        <h2>Body Shape Guide</h2>
+                        <div class="body-shape-guide-grid">
+                            <div class="body-guide-card">
+                                <div class="body-guide-visual">
+                                    <img src="https://pplx-res.cloudinary.com/image/upload/v1754869803/pplx_project_search_images/16e3506e8d3f54efd4ce8464a93fd61e323a3207.png" alt="Body Shape Types" class="body-guide-img">
                                 </div>
-                                <div class="measure-step">
-                                    <div class="step-number">2</div>
-                                    <div class="step-content">
-                                        <h3>Length Measurement</h3>
-                                        <p>Measure from the highest point of shoulder to desired length (usually waist level).</p>
-                                    </div>
-                                </div>
-                                <div class="measure-step">
-                                    <div class="step-number">3</div>
-                                    <div class="step-content">
-                                        <h3>Sleeve Length</h3>
-                                        <p>Measure from shoulder seam to desired sleeve end point.</p>
-                                    </div>
-                                </div>
-                                <div class="measure-step">
-                                    <div class="step-number">4</div>
-                                    <div class="step-content">
-                                        <h3>Shoulder Width</h3>
-                                        <p>Measure from shoulder point to shoulder point across the back.</p>
-                                    </div>
+                                <div class="body-guide-content">
+                                    <h3>5 Body Shape Types</h3>
+                                    <ul class="body-shape-list">
+                                        <li><strong>Rectangle:</strong> Similar measurements throughout, athletic or lean build</li>
+                                        <li><strong>Inverted Triangle:</strong> Broad shoulders with narrow waist, athletic build</li>
+                                        <li><strong>Triangle:</strong> Narrow shoulders with wider midsection</li>
+                                        <li><strong>Oval:</strong> Rounded midsection with narrower shoulders and hips</li>
+                                        <li><strong>Trapezoid:</strong> Well-proportioned with balanced silhouette</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </section>
 
-                    <!-- Size Chart Section -->
+                    <!-- Fit Comparison Section -->
+                    <section class="fit-comparison-section">
+                        <h2>T-Shirt Fit Comparison</h2>
+                        <div class="fit-comparison-visual">
+                            <img src="https://pplx-res.cloudinary.com/image/upload/v1755318310/pplx_project_search_images/9621312b03f56d16973dba3522fd05a9465114de.png" alt="T-Shirt Fit Types" class="fit-comparison-img">
+                        </div>
+                        <div class="fit-types-grid">
+                            <div class="fit-type-card">
+                                <h4>Slim Fit</h4>
+                                <p>Tailored close to the body with modern silhouette. Best for rectangle and inverted triangle shapes.</p>
+                            </div>
+                            <div class="fit-type-card">
+                                <h4>Regular Fit</h4>
+                                <p>Classic straight cut offering comfortable all-day wear. Versatile for most body types.</p>
+                            </div>
+                            <div class="fit-type-card">
+                                <h4>Athletic Fit</h4>
+                                <p>Designed for muscular builds with room through chest and arms. Perfect for athletic body types.</p>
+                            </div>
+                            <div class="fit-type-card">
+                                <h4>Relaxed Fit</h4>
+                                <p>Roomier cut for maximum comfort. Ideal for triangle and oval body shapes.</p>
+                            </div>
+                            <div class="fit-type-card">
+                                <h4>Oversized Fit</h4>
+                                <p>Deliberately loose and baggy for contemporary streetwear look. Great for making a style statement.</p>
+                            </div>
+                            <div class="fit-type-card">
+                                <h4>Longline Fit</h4>
+                                <p>Extended length with contemporary styling. Modern proportions for layering.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Traditional Size Chart -->
                     <section class="size-chart-section">
                         <h2>Size Chart</h2>
                         <div class="size-chart-container">
@@ -255,40 +436,59 @@
                             </table>
                         </div>
                     </section>
+                </div>
+            </div>
+        </div>
 
-                    <!-- Additional Visual Guide -->
-                    <section class="additional-guide">
-                        <h2>Visual Measurement Reference</h2>
-                        <div class="guide-images">
-                            <div class="guide-image-item">
-                                <img src="https://pplx-res.cloudinary.com/image/upload/v1755316109/pplx_project_search_images/446fd8ae7a68e280bb9e438944f5c399defbed5a.png" alt="T-shirt measurement points" class="guide-image">
-                                <p>Key measurement points for accurate sizing</p>
+        <!-- Cart and Checkout pages remain the same -->
+        <div id="cart-page" class="page">
+            <div class="container">
+                <div class="cart-page-content">
+                    <div class="breadcrumb">
+                        <a href="#" data-page="home">Home</a> &gt; <span>Shopping Cart</span>
+                    </div>
+                    <h1>Shopping Cart</h1>
+                    
+                    <div class="cart-layout">
+                        <div class="cart-items-section">
+                            <div id="cart-page-items" class="cart-page-items">
+                                <!-- Cart items will be loaded by JavaScript -->
                             </div>
-                            <div class="guide-image-item">
-                                <img src="https://pplx-res.cloudinary.com/image/upload/v1755316109/pplx_project_search_images/9d1dab505295d63eafca2330e4deb5459b3e4cb9.png" alt="Width and length measurement" class="guide-image">
-                                <p>Width and length measurement demonstration</p>
+                            <div id="cart-page-empty" class="cart-empty">
+                                <h3>Your cart is empty</h3>
+                                <p>Design your perfect custom t-shirt with our 3D tool!</p>
+                                <button class="btn btn--primary" data-page="home">Start Designing</button>
                             </div>
                         </div>
-                    </section>
-
-                    <!-- Tips Section -->
-                    <section class="sizing-tips">
-                        <h2>Sizing Tips</h2>
-                        <div class="tips-grid">
-                            <div class="tip-card">
-                                <h3>For Best Fit</h3>
-                                <p>Compare your measurements to our size chart rather than relying on your usual size, as sizing can vary between brands.</p>
-                            </div>
-                            <div class="tip-card">
-                                <h3>Between Sizes?</h3>
-                                <p>If you're between sizes, consider your preferred fit. Size up for a looser fit, or size down for a more fitted look.</p>
-                            </div>
-                            <div class="tip-card">
-                                <h3>Fabric Consideration</h3>
-                                <p>Our cotton tees may shrink slightly after washing. Consider this when choosing your size.</p>
+                        
+                        <div class="cart-summary-section">
+                            <div class="cart-summary">
+                                <h3>Order Summary</h3>
+                                <div class="summary-line">
+                                    <span>Subtotal:</span>
+                                    <span id="cart-page-subtotal">$0.00</span>
+                                </div>
+                                <div class="summary-line">
+                                    <span>Shipping:</span>
+                                    <span id="cart-page-shipping">TBD</span>
+                                </div>
+                                <div class="summary-line">
+                                    <span>Tax:</span>
+                                    <span id="cart-page-tax">$0.00</span>
+                                </div>
+                                <div class="summary-total">
+                                    <span>Total:</span>
+                                    <span id="cart-page-total">$0.00</span>
+                                </div>
+                                <button class="btn btn--primary btn--full-width" id="proceed-checkout" disabled>
+                                    Proceed to Checkout
+                                </button>
+                                <button class="btn btn--outline btn--full-width mt-8" data-page="home">
+                                    Continue Shopping
+                                </button>
                             </div>
                         </div>
-                    </section>
+                    </div>
                 </div>
             </div>
         </div>
@@ -319,8 +519,8 @@
                     <span id="cart-total">$0.00</span>
                 </div>
             </div>
-            <button class="btn btn--primary btn--full-width" id="checkout-btn" disabled>
-                Proceed to Checkout
+            <button class="btn btn--primary btn--full-width" id="view-cart-btn" disabled>
+                View Cart
             </button>
         </div>
     </div>
